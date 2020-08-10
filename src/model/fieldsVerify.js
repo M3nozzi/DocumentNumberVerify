@@ -14,7 +14,7 @@ const bankSchema = Joi.object().keys({
 
 const banks = (body) => {
     return new Promise((resolve, reject) => {
-        Joi.valid(body, bankSchema)
+        bankSchema.validate(body, bankSchema)
             .then((validBody) => {
                 resolve(validBody);
             })
