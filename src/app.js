@@ -8,6 +8,4 @@ app.get('/', (request, response) => {
     return response.json({ message: 'Hello!!' })
 });
 
-app.listen(3334, () => {
-    console.log(' 💻Backend started 🚀')
-})
+module.exports = app;
