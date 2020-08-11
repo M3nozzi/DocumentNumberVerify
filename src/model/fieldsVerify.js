@@ -12,6 +12,19 @@ const bankSchema = Joi.object().keys({
     
 });
 
+const concessionaireSchema = Joi.object().keys({
+    field1: Joi.string().regex(/^[0-9]{11}$/).required(),
+    field1dv: Joi.string().regex(/^[0-9]{1}$/).required(),
+    field2: Joi.string().regex(/^[0-9]{11}$/).required(),
+    field2dv: Joi.string().regex(/^[0-9]{1}$/).required(),
+    field3: Joi.string().regex(/^[0-9]{11}$/).required(),
+    field3dv: Joi.string().regex(/^[0-9]{1}$/).required(),
+    field4: Joi.string().regex(/^[0-9]{11}$/).required(),
+    field4dv: Joi.string().regex(/^[0-9]{1}$/).required(),
+    date: Joi.string()
+  });
+
+
 const banks = (body) => {
     return new Promise((resolve, reject) => {
         bankSchema.validate(body, bankSchema)
@@ -24,6 +37,20 @@ const banks = (body) => {
     });
 };
 
+const concessionaires = (body) => {
+    return new Promise ( (resolve, reject) => {
+      concessionaireSchema.validate(body, concessionaireSchema)
+      .then((validBody) => {
+        resolve(validBody);
+      })
+      .catch((error) => {
+        reject(error);
+      });
+    });
+  };
+
+
 module.exports = {
     banks: banks,
-}
+    concessionaires: concessionaires
+};
