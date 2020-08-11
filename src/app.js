@@ -2,7 +2,7 @@ const express = require("express");
 const bodyParser = require('body-parser');
 
 
-const bank = require('./routes/bank');
+const banks = require('./routes/banks');
 
 const app = express();
 
@@ -16,6 +16,6 @@ app.get('/', (request, response) => {
     response.render('index');
 });
 
-app.use('/bank', bank);
+app.use('/banks', banks);
 
 module.exports = app;

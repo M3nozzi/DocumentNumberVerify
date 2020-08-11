@@ -4,7 +4,7 @@ const calc = require('../configs/verifyBank');
 const router = express.Router();
 
 router.get('/', (req, res) => {
-    res.render('bank');
+    res.render('banks');
 });
 
 router.post('/test', (req, res) => {
@@ -23,15 +23,15 @@ router.post('/test', (req, res) => {
                     data.codeBar = codeBar;
 
                     if (data.value <= 0) {
-                        res.render('bank', { error: true, description: 'the Bank security value is less than 0' });
+                        res.render('banks', { error: true, description: 'the Bank security value is less than 0' });
                     } else {
-                        res.render('bank', { success: true, data: data });
+                        res.render('banks', { success: true, data: data });
                     };
                 } else {
-                    res.render('bank', { error: true, description: 'The barcode check digit does not match' });
+                    res.render('banks', { error: true, description: 'The barcode check digit does not match' });
                 };
             } else {
-                res.render('bank', { error: true, description: 'The check digits of the digitable line do not match' });
+                res.render('banks', { error: true, description: 'The check digits of the digitable line do not match' });
             };
         })
         .catch((e) => {
@@ -40,7 +40,7 @@ router.post('/test', (req, res) => {
                 e = 'Enter the numbers correctly in the fields'
             };
 
-            res.render('bank', { error: true, description: e })
+            res.render('banks', { error: true, description: e })
         });
 });
 
