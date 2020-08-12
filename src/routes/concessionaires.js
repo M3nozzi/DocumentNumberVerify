@@ -30,16 +30,13 @@ router.post('/test', (req, res) => {
                         let data = calc.dueDateValue(codeBar);
 
                         data.codeBar = codeBar;
-
-                        if (!req.body.data) {
-                            data.DueDate = '-';
-                        };
-
+               
                         if (data.value <= 0) {
                             res.render('concessionaires', {error: true, description: 'Bank note value is less than zero'})
                         } else {
-                            // res.render('concessionaires', { sucess: true, data: data });
-                            res.json(data)
+                            // console.log("poooo",data)
+                            res.render('concessionaires', { success: true, data: data });
+                            // res.json(data)
                         };
                     } else {
                         res.render('concessionaires',{error: true, description: 'The barcode check digit does not match'});

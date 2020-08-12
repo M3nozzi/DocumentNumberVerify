@@ -27,6 +27,10 @@ const verifyConcessionaire = {
                 };
             };
         };
+        
+        if (modDAC == 10) {
+            dvTest = (Math.ceil(dvTest / 10) * 10) - dvTest;
+        };
 
         if (modDAC == 11) {
             dvTest = dvTest % 11;
@@ -46,7 +50,7 @@ const verifyConcessionaire = {
     },
 
     dueDateValue: (codeBar) => {
-        let dueDate, value, valueCodeBar;
+        let dueDate, value;
 
         if (codeBar[1] == '6') {
             dueDate = codeBar.substr(26, 8);
@@ -55,8 +59,8 @@ const verifyConcessionaire = {
         };
 
         value = Number(codeBar.substr(4, 11)) / 100;
-
-        return { DueDate: `${dueDate[6] + dueDate[7]}/${dueDate[4] + dueDate[5]}/${dueDate[0] + dueDate[1] + dueDate[2 + dueDate[3]]}`, value: value };
+        console.log(`${dueDate[6] + dueDate[7]}/${dueDate[4] + dueDate[5]}/${dueDate[0] + dueDate[1] + dueDate[2] + dueDate[3]}`)
+        return { DueDate: `${dueDate[6] + dueDate[7]}/${dueDate[4] + dueDate[5]}/${dueDate[0] + dueDate[1] + dueDate[2] + dueDate[3]}`, value: value };
     }
 
 

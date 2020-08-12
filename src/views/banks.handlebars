@@ -1,0 +1,86 @@
+<style>
+  .formulario-filho{
+    display: flex;
+    justify-content: center;
+  }
+
+  .formulario {
+    margin: 1em;
+  }
+
+  .formulario-pai {
+    width: 75%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .descricao {
+    text-align: center;
+    margin-top: 5%;
+  }
+
+  .botao {
+    margin: auto;
+    margin-bottom: 3em;
+  }
+
+  .alertdisplay {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    width: 70%;
+    margin: auto;
+  }
+
+</style>
+
+<form class="formulario-pai" method="post" action="/banks/test">
+  <div class="descricao">
+    <h1>Insira os números do título bancário a ser testado:</h1>
+  </div>
+  <div class="formulario-filho">
+    <div class="formulario">
+      <input name="field1i" maxlength="5" size="5">
+      <b>.</b>
+      <input name="field1ii" maxlength="5" size="5">
+    </div>
+    <div class="formulario">
+      <input name="field2i" maxlength="5" size="5">
+      <b>.</b>
+      <input name="field2ii"  maxlength="6" size="6">
+    </div>
+    <div class="formulario">
+      <input name="field3i" maxlength="5" size="5">
+      <b>.</b>
+      <input name="field3ii" maxlength="6" size="6">
+    </div>
+    <div class="formulario">
+      <input name="field4" maxlength="1" size="1">
+    </div>
+    <div class="formulario">
+      <input name="field5" maxlength="14" size="15">
+    </div>
+  </div>
+  <button type="submit" class="botao btn">Testar</button>
+  {{#if error}}
+  <div class="alert alert-danger alertdisplay" role="alert">
+    A linha digitada não é válida!<br>
+    Erro: {{description}}
+  </div>
+  {{/if}}
+
+  {{#if success}}
+  <div class="alert alert-success alertdisplay" role="alert">
+    A linha digitada é válida! <br>
+    Dados: <br>
+    <ul>
+      <li>Código de barras: {{data.codeBar}};</li>
+      <li>Vencimento: {{data.due}}</li>
+      <li>Valor: R$ {{data.value}}</li>
+    </ul>
+  </div>
+  {{/if}}
+
+  <a class="btn" href="/" role="button">Voltar</a>
+</form>

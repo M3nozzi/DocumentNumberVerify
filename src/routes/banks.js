@@ -17,14 +17,15 @@ router.post('/test', (req, res) => {
 
             if (testDV1 && testDV2 && testDV3) {
                 let codeBar = calc.getCodeBar(body);
-
-                if (calc.getCodeBar(codeBar)) {
+               
+                if (calc.codeBarVerify(codeBar)) {
                     let data = calc.dueDateValue(req.body.field5.substr(0, 4), req.body.field5.substr(4, 10));
                     data.codeBar = codeBar;
 
                     if (data.value <= 0) {
                         res.render('banks', { error: true, description: 'the Bank security value is less than 0' });
                     } else {
+                        
                         res.render('banks', { success: true, data: data });
                     };
                 } else {
