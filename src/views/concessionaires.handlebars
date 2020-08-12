@@ -21,9 +21,6 @@
       <input name="field4dv" maxlength="1" size="2">
     </div>
   </div>
-  <button type="submit" class="Button btn">Validar Boleto</button>
-  <a class="Home" href="/" role="button">Home</a>
-</form>
 
 {{#if error}}
 <div class="alert alert-danger alertdisplay" role="alert">
@@ -42,6 +39,9 @@
   </ul>
 </div>
 {{/if}}
+
+ <button type="submit" class="Button btn">Validar Boleto</button>
+</form>
 
 <style>
   *{
@@ -103,6 +103,7 @@ input{
   .Home {
     margin: auto;
     margin-bottom: 1.3rem;
+    margin-top: 1.3rem;
     padding: 0.8rem 1.3rem;
     border-radius: 0.8rem;
     font: 300 1.3rem Archivo;
