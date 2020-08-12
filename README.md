@@ -22,8 +22,21 @@ https://cmsportal.febraban.org.br/Arquivos/documentos/PDF/Layout%20-%20C%C3%B3di
 O vencimento de um boleto bancário corresponde ao número de dias decorridos entre a “data base” instituída pelo Banco Central do Brasil – BACEN e a “data de vencimento”. 
 A “data base” instituída pelo BACEN é: 07/10/1997.
 
-## Para inicializar este projeto
-* Clone este repositório
-* Instale as dependências com yarn instal ou npm install
-* Inicialize o servidor no terminal com yarn start ou npm start
-* Acesse no browser http://localhost:3334
+### :computer:   Para instalar e inicializar este projeto
+
+```bash
+# Clone esse repositório
+$ git clone https://github.com/M3nozzi/challenge
+
+# No terminal acesse o reposiório
+$ cd challenge
+
+# Instale as dependências
+$ yarn install ou npm install
+
+# Inicialize o server
+$  yarn start ou npm start
+
+# running on port 3334
+Acesse no browser http://localhost:3334
+```
