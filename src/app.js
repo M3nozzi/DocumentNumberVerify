@@ -22,13 +22,6 @@ app.use(bodyParser.urlencoded({
     extended: false
 }));
 
-// app.use(
-//     cors({
-//         credentials: true,
-//         origin: ["http://localhost:3001"],
-//     })
-// )
-
 app.get('/', (req, res) => {
     res.render('index');
 });

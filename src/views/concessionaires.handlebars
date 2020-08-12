@@ -24,14 +24,14 @@
 
 {{#if error}}
 <div class="alert alert-danger alertdisplay" role="alert">
-  Número do boleto não é válido<br>
+  A linha digitada não é válida<br>
   {{description}}
 </div>
 {{/if}}
 
 {{#if success}}
 <div class="alert alert-success alertdisplay" role="alert">
-  Número do boleto é válido <br>
+  A linha digitada é válida <br>
     <ul>
     <li>Código de barras: {{data.codeBar}}</li>
     <li>Vencimento: {{data.DueDate}}</li>
