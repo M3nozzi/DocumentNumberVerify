@@ -1,29 +1,97 @@
+
+<form class="Form" method="post" action="/concessionaires/test">
+  <div class="Title">
+    <h1>Digite os números do boleto do tipo concessionária</h1>
+  </div>
+  <div class="FormAll">
+    <div class="FormEach">
+      <input name="field1" maxlength="11" size="12">
+      <input name="field1dv" maxlength="1" size="2">
+    </div>
+    <div class="FormEach">
+      <input name="field2" maxlength="11" size="12">
+      <input name="field2dv" maxlength="1" size="2">
+    </div>
+    <div class="FormEach">
+      <input name="field3" maxlength="11" size="12">
+      <input name="field3dv" maxlength="1" size="2">
+    </div>
+    <div class="FormEach">
+      <input name="field4" maxlength="11" size="12">
+      <input name="field4dv" maxlength="1" size="2">
+    </div>
+  </div>
+  <button type="submit" class="Button btn">Validar Boleto</button>
+  <a class="Home" href="/" role="button">Home</a>
+</form>
+
+{{#if error}}
+<div class="alert alert-danger alertdisplay" role="alert">
+  Número do boleto não é válido<br>
+  {{description}}
+</div>
+{{/if}}
+
+{{#if success}}
+<div class="alert alert-success alertdisplay" role="alert">
+  Número do boleto é válido <br>
+    <ul>
+    <li>Código de barras: {{data.codeBar}}</li>
+    <li>Vencimento: {{data.DueDate}}</li>
+    <li>Valor: R$ {{data.value}}</li>
+  </ul>
+</div>
+{{/if}}
+
 <style>
-  .formulario-filho{
+  *{
+    font-family: Archivo;
+   
+  }
+  .FormAll{
     display: flex;
     justify-content: center;
   }
-
-  .formulario {
+  h1 {
+   color:#bcc600;
+  }
+  .FormEach {
     margin: 1em;
   }
 
-  .formulario-pai {
+input{
+  font-size:18px;
+  border:none;
+  border-bottom:1px solid #757575;
+  margin-bottom: 1.3rem;
+}
+  .Form {
     width: 100%;
     display: flex;
     justify-content: center;
     flex-direction: column;
   }
 
-  .descricao {
+  .Title {
     text-align: center;
     margin-top: 5%;
   }
 
-  .botao {
+  .Button {
     margin: auto;
-    margin-bottom: 3em;
+    margin-bottom: 1em;
+    padding: 0.8rem 1.3rem;
+    border-radius: 0.8rem;
+    font: 500 1.7rem Archivo;
+    color:#FFFF;
+    background: #f4b300;
+    transition: background-color 0.2s;
   }
+
+  .Button:hover {
+    background: #e8bd48;
+}
+
 
   .alertdisplay {
     display: flex;
@@ -32,54 +100,22 @@
     margin: auto;
   }
 
+  .Home {
+    margin: auto;
+    margin-bottom: 1.3rem;
+    padding: 0.8rem 1.3rem;
+    border-radius: 0.8rem;
+    font: 300 1.3rem Archivo;
+    color:#FFFF;
+    background: #bcc600;
+    transition: background-color 0.2s;
+    text-decoration: none;
+  }
+
+  .Home:hover{
+    background:#54c0ce;
+    color: #FFFF;
+    text-decoration: none;
+  }
+
 </style>
-
-<form class="formulario-pai" method="post" action="/concessionaires/test">
-  <div class="descricao">
-    <h1>Insira os números do pagamento de concessionária a ser testado:</h1>
-  </div>
-  <div class="formulario-filho">
-    <div class="formulario">
-      <input name="field1" maxlength="11" size="12">
-      <input name="field1dv" maxlength="1" size="2">
-    </div>
-    <div class="formulario">
-      <input name="field2" maxlength="11" size="12">
-      <input name="field2dv" maxlength="1" size="2">
-    </div>
-    <div class="formulario">
-      <input name="field3" maxlength="11" size="12">
-      <input name="field3dv" maxlength="1" size="2">
-    </div>
-    <div class="formulario">
-      <input name="field4" maxlength="11" size="12">
-      <input name="field4dv" maxlength="1" size="2">
-    </div>
-    <div class="formulario">
-      <input type="checkbox" name="data">Tem data de vencimento? </input>
-    </div>
-  </div>
-  <button type="submit" class="botao btn">Testar</button>
-
-
-  <a class="btn" href="/" role="button">Voltar</a>
-</form>
-
-{{#if error}}
-<div class="alert alert-danger alertdisplay" role="alert">
-  A linha digitada não é válida!<br>
-  Erro: {{description}}
-</div>
-{{/if}}
-
-{{#if success}}
-<div class="alert alert-success alertdisplay" role="alert">
-  A linha digitada é válida! <br>
-  Dados: <br>
-  <ul>
-    <li>Código de barras: {{data.codeBar}};</li>
-    <li>Vencimento: {{data.DueDate}}</li>
-    <li>Valor: R$ {{data.value}}</li>
-  </ul>
-</div>
-{{/if}}

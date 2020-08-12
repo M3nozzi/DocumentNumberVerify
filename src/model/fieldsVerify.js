@@ -27,7 +27,6 @@ const concessionaireSchema = Joi.object().keys({
 const banks = (body) => {
     return new Promise((resolve, reject) => {
         Joi.validate(body, bankSchema)
-            // bankSchema.validate(body, bankSchema)
             .then((validBody) => {
                 resolve(validBody);
             })
@@ -40,8 +39,7 @@ const banks = (body) => {
 const concessionaires = (body) => {
     return new Promise((resolve, reject) => {
         Joi.validate(body, concessionaireSchema)
-    //   concessionaireSchema.validate(body, concessionaireSchema)
-      .then((validBody) => {
+        .then((validBody) => {
         resolve(validBody);
       })
       .catch((error) => {

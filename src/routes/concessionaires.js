@@ -34,7 +34,7 @@ router.post('/test', (req, res) => {
                         if (data.value <= 0) {
                             res.render('concessionaires', {error: true, description: 'Bank note value is less than zero'})
                         } else {
-                            // console.log("poooo",data)
+                            
                             res.render('concessionaires', { success: true, data: data });
                             // res.json(data)
                         };

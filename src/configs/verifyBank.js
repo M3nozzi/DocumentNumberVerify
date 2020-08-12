@@ -48,9 +48,9 @@ const verifyBank = {
     },
 
     codeBarVerify: (codeBar) => {
-        console.log(codeBar)
+        
         let codeBarWithoutDv = codeBar.substr(0, 4) + codeBar.substr(5, 39);
-            console.log(codeBarWithoutDv)
+            
         let dvCodeBar = Number(codeBar[4]);
 
         let dvTest = 0;
@@ -89,7 +89,7 @@ const verifyBank = {
         dueDate.setDate(dueDate.getDate() + Number(date));
 
         let finalValue = Number(value) / 100;
-        console.log(`${dueDate.getDate()}/${dueDate.getMonth() + 1}/${dueDate.getFullYear()}`)
+        
         return { due: `${dueDate.getDate()}/${dueDate.getMonth() + 1}/${dueDate.getFullYear()}`, value: finalValue };
     }
 

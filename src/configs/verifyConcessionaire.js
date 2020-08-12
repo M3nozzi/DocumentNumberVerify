@@ -59,7 +59,7 @@ const verifyConcessionaire = {
         };
 
         value = Number(codeBar.substr(4, 11)) / 100;
-        console.log(`${dueDate[6] + dueDate[7]}/${dueDate[4] + dueDate[5]}/${dueDate[0] + dueDate[1] + dueDate[2] + dueDate[3]}`)
+        
         return { DueDate: `${dueDate[6] + dueDate[7]}/${dueDate[4] + dueDate[5]}/${dueDate[0] + dueDate[1] + dueDate[2] + dueDate[3]}`, value: value };
     }
 
