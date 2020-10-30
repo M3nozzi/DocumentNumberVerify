@@ -69,7 +69,7 @@ O código de barras possui ao todo 44 posições, isto inclui o DV, e para calcu
 
 ```bash
 # Clone esse repositório
-$ git clone https://github.com/M3nozzi/challenge
+$ git clone https://github.com/M3nozzi/DocumentNumberVerify
 
 # No terminal acesse o reposiório
 $ cd challenge
